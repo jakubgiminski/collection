@@ -36,11 +36,11 @@ class ColorsCollectionTest extends TestCase
 
     public function testCanRemoveAColor(): void
     {
-        $colors = new ColorsCollection(['blue', 'claret']);
+        $colors = new ColorsCollection(['blue', 'claret', 'yellow']);
 
         $colors->remove('claret');
 
-        self::assertCount(1, $colors);
+        self::assertCount(2, $colors);
     }
 
     public function testThrowsExceptionInCaseOfInvalidType(): void
