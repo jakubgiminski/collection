@@ -47,6 +47,21 @@ abstract class Collection implements \Countable
         return $this;
     }
 
+    public function get($uniqueIndex)
+    {
+        if (!$this->hasUniqueIndex()) {
+            throw UniqueIndexException::indexMissing($uniqueIndex);
+        }
+
+        foreach ($this->elements as $element) {
+            if (($this->uniqueIndex)($element) === $uniqueIndex) {
+                return $element;
+            }
+        }
+
+        throw NotFoundException::elementNotFound($uniqueIndex);
+    }
+
     public function count(): int
     {
         return count($this->elements);

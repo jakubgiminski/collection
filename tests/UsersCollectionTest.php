@@ -2,10 +2,10 @@
 
 namespace Collection\Tests;
 
-use Collection\DuplicateIndexException;
 use Collection\Examples\Users\User;
 use Collection\Examples\Users\UsersCollection;
-use Collection\InvalidTypeException;
+use Collection\TypeException;
+use Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class UsersCollectionTest extends TestCase
@@ -51,9 +51,19 @@ class UsersCollectionTest extends TestCase
         self::assertCount(1, $users);
     }
 
+    public function testCanGetAUserByUniqueIndex(): void
+    {
+        $users = new UsersCollection([
+            $maria = new User(1, 'Maria'),
+            $john = new User(2, 'John'),
+        ]);
+
+        self::assertSame($john, $users->get(2));
+    }
+
     public function testThrowsExceptionInCaseOfInvalidType(): void
     {
-        $exception = InvalidTypeException::create(User::class, 'string');
+        $exception = TypeException::invalidType(User::class, 'string');
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
@@ -64,7 +74,7 @@ class UsersCollectionTest extends TestCase
     {
         $users = new UsersCollection([new User(1, 'John')]);
 
-        $exception = DuplicateIndexException::create(1);
+        $exception = UniqueIndexException::duplicateIndex(1);
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 

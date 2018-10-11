@@ -3,7 +3,8 @@
 namespace Collection\Tests;
 
 use Collection\Examples\Numbers\NumbersCollection;
-use Collection\InvalidTypeException;
+use Collection\TypeException;
+use Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class NumbersCollectionTest extends TestCase
@@ -39,9 +40,18 @@ class NumbersCollectionTest extends TestCase
         self::assertCount(2, $numbers);
     }
 
+    public function testThrowsExceptionOnGetBecauseOfAMissingIndex(): void
+    {
+        $exception = UniqueIndexException::indexMissing(123);
+        $this->expectException(get_class($exception));
+        $this->expectExceptionMessage($exception->getMessage());
+
+        (new NumbersCollection([123]))->get(123);
+    }
+
     public function testThrowsExceptionInCaseOfInvalidType(): void
     {
-        $exception = InvalidTypeException::create('integer', 'string');
+        $exception = TypeException::invalidType('integer', 'string');
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 

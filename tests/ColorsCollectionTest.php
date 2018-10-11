@@ -4,7 +4,8 @@ namespace Collection\Tests;
 
 use Collection\DuplicateIndexException;
 use Collection\Examples\Colors\ColorsCollection;
-use Collection\InvalidTypeException;
+use Collection\TypeException;
+use Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class ColorsCollectionTest extends TestCase
@@ -45,7 +46,7 @@ class ColorsCollectionTest extends TestCase
 
     public function testThrowsExceptionInCaseOfInvalidType(): void
     {
-        $exception = InvalidTypeException::create('string', 'integer');
+        $exception = TypeException::invalidType('string', 'integer');
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
@@ -56,7 +57,7 @@ class ColorsCollectionTest extends TestCase
     {
         $colors = new ColorsCollection(['red', 'blue']);
 
-        $exception = DuplicateIndexException::create('red');
+        $exception = UniqueIndexException::duplicateIndex('red');
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 

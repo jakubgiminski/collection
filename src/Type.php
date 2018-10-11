@@ -68,15 +68,15 @@ class Type
     {
         if ($this->isObject() && !$element instanceof $this->type) {
             $type = is_object($element) ? get_class($element) : gettype($element);
-            throw InvalidTypeException::create($this->type, $type);
+            throw TypeException::invalidType($this->type, $type);
         }
 
         if ($this->isArray() && !is_array($element)) {
-            throw InvalidTypeException::create('array', gettype($element));
+            throw TypeException::invalidType('array', gettype($element));
         }
 
         if ($this->isScalar() && gettype($element) !== $this->type) {
-            throw InvalidTypeException::create($this->type, gettype($element));
+            throw TypeException::invalidType($this->type, gettype($element));
         }
     }
 }

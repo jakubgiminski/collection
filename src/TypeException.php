@@ -2,11 +2,11 @@
 
 namespace Collection;
 
-use InvalidArgumentException;
+use RuntimeException;
 
-class InvalidTypeException extends InvalidArgumentException
+class TypeException extends RuntimeException
 {
-    public static function create(string $expected, string $actual): self
+    public static function invalidType(string $expected, string $actual): self
     {
         return new self("Invalid type. Expected: $expected. Actual: $actual");
     }
