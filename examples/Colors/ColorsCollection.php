@@ -10,11 +10,12 @@ class ColorsCollection extends Collection
 {
     public function __construct(array $colors = [])
     {
-        parent::__construct($colors, [
-            Type::scalar('string'),
+        parent::__construct(
+            $colors,
+            Type::string(),
             new UniqueIndex(function (string $color) {
                 return $color;
             })
-        ]);
+        );
     }
 }

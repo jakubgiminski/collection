@@ -9,6 +9,6 @@ class NumbersCollection extends Collection
 {
     public function __construct(array $numbers = [])
     {
-        parent::__construct($numbers, [Type::scalar('integer')]);
+        parent::__construct($numbers, Type::integer());
     }
 }
