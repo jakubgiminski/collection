@@ -2,7 +2,6 @@
 
 namespace Collection\Tests;
 
-use Collection\DuplicateIndexException;
 use Collection\Examples\Colors\ColorsCollection;
 use Collection\TypeException;
 use Collection\UniqueIndexException;

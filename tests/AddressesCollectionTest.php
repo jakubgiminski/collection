@@ -93,4 +93,21 @@ class AddressesCollectionTest extends TestCase
 
         $addresses->add($colosseum);
     }
+
+    public function testCanBeIteratedOver(): void
+    {
+        $addresses = new AddressesCollection([
+            AddressesFactory::createForBuckinghamPalace(),
+            AddressesFactory::createForEiffelTower(),
+            AddressesFactory::createForColosseum(),
+        ]);
+
+        $iterations = 0;
+
+        foreach ($addresses as $address) {
+            $iterations++;
+        }
+
+        self::assertSame(3, $iterations);
+    }
 }

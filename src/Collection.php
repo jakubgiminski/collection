@@ -2,7 +2,10 @@
 
 namespace Collection;
 
-abstract class Collection implements \Countable
+use Countable;
+use Iterator;
+
+abstract class Collection implements Countable, Iterator
 {
     private $elements;
 
@@ -80,5 +83,30 @@ abstract class Collection implements \Countable
     public function hasUniqueIndex(): bool
     {
         return $this->uniqueIndex instanceof UniqueIndex;
+    }
+
+    public function rewind()
+    {
+        return reset($this->elements);
+    }
+
+    public function current()
+    {
+        return current($this->elements);
+    }
+
+    public function key()
+    {
+        return key($this->elements);
+    }
+
+    public function next()
+    {
+        return next($this->elements);
+    }
+
+    public function valid()
+    {
+        return key($this->elements) !== null;
     }
 }
