@@ -1,0 +1,25 @@
+{
+    "name": "jakubgiminski/collection",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "authors": [
+        {
+            "name": "Jakub Giminski",
+            "email": "jakubgiminski@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Collection\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Collection\\Tests\\": "tests/",
+            "Collection\\Examples\\": "examples/"
+        }
+    }
+}
