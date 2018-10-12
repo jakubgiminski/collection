@@ -67,5 +67,5 @@ Collection::rewind();
 Collection::current();
 Collection::key();
 Collection::next();
-Colletion::valid();
+Collection::valid();
 ```
