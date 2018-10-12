@@ -14,6 +14,6 @@ class UniqueIndexException extends RuntimeException
 
     public static function duplicateIndex($index): self
     {
-        return new self("Element with index $index already exists in the collection");
+        return new self("Element with index $index already exists in this collection");
     }
 }

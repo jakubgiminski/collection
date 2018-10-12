@@ -4,13 +4,13 @@ namespace Collection;
 
 class Type
 {
-    private $kind;
+    private $genericType;
 
     private $type;
 
-    private function __construct(string $kind, string $type)
+    private function __construct(string $genericType, string $type)
     {
-        $this->kind = $kind;
+        $this->genericType = $genericType;
         $this->type = $type;
     }
 
@@ -46,17 +46,17 @@ class Type
 
     public function isObject(): bool
     {
-        return $this->kind === 'object';
+        return $this->genericType === 'object';
     }
 
     public function isArray(): bool
     {
-        return $this->kind === 'array';
+        return $this->genericType === 'array';
     }
 
     public function isScalar(): bool
     {
-        return $this->kind === 'scalar';
+        return $this->genericType === 'scalar';
     }
 
     public function getType(): string
