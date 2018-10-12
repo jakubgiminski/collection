@@ -4,14 +4,14 @@ In order to use it, simply have your collection class extend the abstract
 `Collection` and set it up in the constructor.
 
 ### Installation
-Minimum required php version: 7.2
+Minimum required php version is `7.2`
 ```
 composer require jakubgiminski/collection
 ```
 
 ### Examples
 Here's an example of a `UsersCollection` - a collection of elements where each one
-must be an instance of User. Also, every User in the collection must have a unique id.
+must be an instance of `User`. Also, every `User` in the collection must have a unique id.
 ```php
 class UsersCollection extends Collection
 {
