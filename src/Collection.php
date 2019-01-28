@@ -42,7 +42,7 @@ abstract class Collection implements Countable, Iterator
     public function remove($redundantElement): self
     {
         foreach ($this->elements as $key => $element) {
-            if ($element === $redundantElement) {
+            if ($element == $redundantElement) {
                 unset($this->elements[$key]);
             }
         }
