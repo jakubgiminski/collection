@@ -65,6 +65,16 @@ abstract class Collection implements Countable, Iterator
         throw NotFoundException::elementNotFound($uniqueIndex);
     }
 
+    public function contains($uniqueIndex): bool
+    {
+        try {
+            $this->get($uniqueIndex);
+            return true;
+        } catch (NotFoundException $exception) {
+            return false;
+        }
+    }
+
     public function count(): int
     {
         return count($this->elements);

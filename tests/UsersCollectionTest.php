@@ -61,6 +61,26 @@ class UsersCollectionTest extends TestCase
         self::assertSame($john, $users->get(2));
     }
 
+    public function testCanCheckIfContainsAUserByUniqueIndex(): void
+    {
+        $users = new UsersCollection([
+            $maria = new User(1, 'Maria'),
+            $john = new User(2, 'John'),
+        ]);
+
+        self::assertTrue($users->contains(2));
+    }
+
+    public function testCanCheckIfDoesNotContainAUserByUniqueIndex(): void
+    {
+        $users = new UsersCollection([
+            $maria = new User(1, 'Maria'),
+            $john = new User(2, 'John'),
+        ]);
+
+        self::assertFalse($users->contains(3));
+    }
+
     public function testThrowsExceptionInCaseOfInvalidType(): void
     {
         $exception = TypeException::invalidType(User::class, 'string');
