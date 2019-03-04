@@ -68,4 +68,5 @@ Collection::current();
 Collection::key();
 Collection::next();
 Collection::valid();
+Collection::isEmpty(): bool;
 ```
