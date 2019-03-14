@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Examples\Users;
+namespace Comquer\Collection\Examples\Users;
 
-use Collection\Collection;
-use Collection\Type;
-use Collection\UniqueIndex;
+use Comquer\Collection\Collection;
+use Comquer\Collection\Type;
+use Comquer\Collection\UniqueIndex;
 
 class UsersCollection extends Collection
 {

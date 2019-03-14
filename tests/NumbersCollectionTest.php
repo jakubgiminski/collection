@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Tests;
+namespace Comquer\Collection\Tests;
 
-use Collection\Examples\Numbers\NumbersCollection;
-use Collection\TypeException;
-use Collection\UniqueIndexException;
+use Comquer\Collection\Examples\Numbers\NumbersCollection;
+use Comquer\Collection\TypeException;
+use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class NumbersCollectionTest extends TestCase

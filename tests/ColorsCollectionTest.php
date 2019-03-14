@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Tests;
+namespace Comquer\Collection\Tests;
 
-use Collection\Examples\Colors\ColorsCollection;
-use Collection\TypeException;
-use Collection\UniqueIndexException;
+use Comquer\Collection\Examples\Colors\ColorsCollection;
+use Comquer\Collection\TypeException;
+use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class ColorsCollectionTest extends TestCase

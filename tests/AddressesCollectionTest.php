@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Tests;
+namespace Comquer\Collection\Tests;
 
-use Collection\Examples\Addresses\AddressesCollection;
-use Collection\Examples\Addresses\AddressesFactory;
-use Collection\TypeException;
-use Collection\UniqueIndexException;
+use Comquer\Collection\Examples\Addresses\AddressesCollection;
+use Comquer\Collection\Examples\Addresses\AddressesFactory;
+use Comquer\Collection\TypeException;
+use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class AddressesCollectionTest extends TestCase

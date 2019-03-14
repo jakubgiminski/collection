@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Examples\Addresses;
+namespace Comquer\Collection\Examples\Addresses;
 
-use Collection\Collection;
-use Collection\Type;
-use Collection\UniqueIndex;
+use Comquer\Collection\Collection;
+use Comquer\Collection\Type;
+use Comquer\Collection\UniqueIndex;
 
 class AddressesCollection extends Collection
 {

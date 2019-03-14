@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Tests;
+namespace Comquer\Collection\Tests;
 
-use Collection\Examples\Users\User;
-use Collection\Examples\Users\UsersCollection;
-use Collection\TypeException;
-use Collection\UniqueIndexException;
+use Comquer\Collection\Examples\Users\User;
+use Comquer\Collection\Examples\Users\UsersCollection;
+use Comquer\Collection\TypeException;
+use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
 class UsersCollectionTest extends TestCase

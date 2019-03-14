@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Examples\Numbers;
+namespace Comquer\Collection\Examples\Numbers;
 
-use Collection\Collection;
-use Collection\Type;
+use Comquer\Collection\Collection;
+use Comquer\Collection\Type;
 
 class NumbersCollection extends Collection
 {

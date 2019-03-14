@@ -1,5 +1,5 @@
 {
-    "name": "jakubgiminski/collection",
+    "name": "comquer/collection",
     "type": "library",
     "version": "1.2.0",
     "require-dev": {
@@ -14,13 +14,13 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Collection\\": "src/"
+            "Comquer\\Collection\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Collection\\Tests\\": "tests/",
-            "Collection\\Examples\\": "examples/"
+            "Comquer\\Collection\\Tests\\": "tests/",
+            "Comquer\\Collection\\Examples\\": "examples/"
         }
     }
 }

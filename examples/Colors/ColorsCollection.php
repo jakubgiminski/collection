@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Collection\Examples\Colors;
+namespace Comquer\Collection\Examples\Colors;
 
-use Collection\Collection;
-use Collection\Type;
-use Collection\UniqueIndex;
+use Comquer\Collection\Collection;
+use Comquer\Collection\Type;
+use Comquer\Collection\UniqueIndex;
 
 class ColorsCollection extends Collection
 {
