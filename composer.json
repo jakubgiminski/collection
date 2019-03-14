@@ -1,7 +1,8 @@
 {
     "name": "comquer/collection",
     "type": "library",
-    "version": "1.3.0",
+    "minimum-stability": "dev",
+    "version": "dev-master",
     "require-dev": {
         "phpunit/phpunit": "^7.3"
     },
