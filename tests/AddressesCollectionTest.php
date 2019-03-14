@@ -110,4 +110,24 @@ class AddressesCollectionTest extends TestCase
 
         self::assertSame(3, $iterations);
     }
+
+    public function testCanTellIfIsEmpty(): void
+    {
+        $addresses = new AddressesCollection();
+        self::assertTrue(
+            $addresses->isEmpty()
+        );
+    }
+
+    public function testCanTellIfIsNotEmpty(): void
+    {
+        $addresses = new AddressesCollection([
+            AddressesFactory::createForBuckinghamPalace()
+        ]);
+
+
+        self::assertFalse(
+            $addresses->isEmpty()
+        );
+    }
 }

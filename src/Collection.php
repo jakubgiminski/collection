@@ -119,4 +119,9 @@ abstract class Collection implements Countable, Iterator
     {
         return key($this->elements) !== null;
     }
+
+    public function isEmpty(): bool
+    {
+        return empty($this->elements);
+    }
 }
