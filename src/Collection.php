@@ -124,4 +124,24 @@ abstract class Collection implements Countable, Iterator
     {
         return empty($this->elements);
     }
+
+    public function merge(self $collection): void
+    {
+        foreach ($collection as $element) {
+            $this->add($element);
+        }
+    }
+
+    public function filter(callable $filter): self
+    {
+        $filteredCollection = new static([]);
+
+        foreach ($this as $element) {
+            if ($filter($element)) {
+                $filteredCollection->add($element);
+            }
+        }
+
+        return $filteredCollection;
+    }
 }
