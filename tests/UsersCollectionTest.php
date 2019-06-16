@@ -101,7 +101,7 @@ class UsersCollectionTest extends TestCase
         $users->add(new User(1, 'Bill'));
     }
 
-    public function testAddMany()
+    public function testAddMany(): void
     {
         $users = new UsersCollection([
             new User(1, 'Chris'),
@@ -119,7 +119,7 @@ class UsersCollectionTest extends TestCase
         self::assertCount($numberOfUsers, $users);
     }
 
-    public function testFilter()
+    public function testFilter(): void
     {
         $users = new UsersCollection([
            new User(1, 'George'),
