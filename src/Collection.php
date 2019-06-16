@@ -124,4 +124,11 @@ abstract class Collection implements Countable, Iterator
     {
         return empty($this->elements);
     }
+
+    public function merge(self $collection): void
+    {
+        foreach ($collection as $element) {
+            $this->add($element);
+        }
+    }
 }

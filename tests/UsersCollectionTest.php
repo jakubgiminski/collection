@@ -7,6 +7,7 @@ use Comquer\Collection\Examples\Users\UsersCollection;
 use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\UnintentionallyCoveredCodeError;
 
 class UsersCollectionTest extends TestCase
 {
@@ -99,5 +100,22 @@ class UsersCollectionTest extends TestCase
         $this->expectExceptionMessage($exception->getMessage());
 
         $users->add(new User(1, 'Bill'));
+    }
+
+    public function testMerge()
+    {
+        $users = new UsersCollection([
+            new User(1, 'Chris'),
+            new User(2, 'Jakub'),
+        ]);
+
+        $moreUsers = new UsersCollection([
+           new User(3, 'Rob'),
+        ]);
+
+        $totalSize = $users->count() + $moreUsers->count();
+        $users->merge($moreUsers);
+
+        self::assertCount($totalSize, $users);
     }
 }
