@@ -131,4 +131,17 @@ abstract class Collection implements Countable, Iterator
             $this->add($element);
         }
     }
+
+    public function filter(callable $filter): self
+    {
+        $filteredCollection = new static([]);
+
+        foreach ($this as $element) {
+            if ($filter($element)) {
+                $filteredCollection->add($element);
+            }
+        }
+
+        return $filteredCollection;
+    }
 }
