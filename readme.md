@@ -57,6 +57,8 @@ Naturally, `Collection` does what any collection would do - you can count it, it
 If the collection has a unique index set, you can also get elements from the collection by that index.
 ```php
 Collection::add($element): self;
+Collection::addMany(self $collection): void;
+Collection::filter(callable $filter): self;
 Collection::remove($element): self;
 Collection::get($uniqueIndex): self;
 Collection::count(): int;
