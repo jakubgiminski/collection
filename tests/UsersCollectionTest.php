@@ -118,4 +118,26 @@ class UsersCollectionTest extends TestCase
 
         self::assertCount($totalSize, $users);
     }
+
+    public function testFilter()
+    {
+        $users = new UsersCollection([
+           new User(1, 'George'),
+           new User(2, 'George'),
+           new User(3, 'Chris'),
+           new User(4, 'Jakub'),
+           new User(5, 'George'),
+        ]);
+
+        $georges = $users->filter(function (User $user) {
+           return $user->getName() === 'George';
+        });
+
+        self::assertCount(3, $georges);
+
+        /** @var User $george */
+        foreach ($georges as $george) {
+            self::assertSame('George', $george->getName());
+        }
+    }
 }
