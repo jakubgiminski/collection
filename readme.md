@@ -4,7 +4,7 @@ In order to use it, simply have your collection class extend the abstract
 `Collection` and set it up in the constructor.
 
 ### Installation
-Minimum required php version is `7.2`
+Minimum required php version is `7.1`
 ```
 composer require jakubgiminski/collection
 ```

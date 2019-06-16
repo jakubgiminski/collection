@@ -39,6 +39,13 @@ abstract class Collection implements Countable, Iterator
         return $this;
     }
 
+    public function addMany(self $collection): void
+    {
+        foreach ($collection as $element) {
+            $this->add($element);
+        }
+    }
+
     public function remove($redundantElement): self
     {
         foreach ($this->elements as $key => $element) {
@@ -123,13 +130,6 @@ abstract class Collection implements Countable, Iterator
     public function isEmpty(): bool
     {
         return empty($this->elements);
-    }
-
-    public function merge(self $collection): void
-    {
-        foreach ($collection as $element) {
-            $this->add($element);
-        }
     }
 
     public function filter(callable $filter): self
