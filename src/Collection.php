@@ -144,4 +144,34 @@ abstract class Collection implements Countable, Iterator
 
         return $filteredCollection;
     }
+
+    public function sortDescending(callable $getParameter) : self
+    {
+        $elements = $this->getElements();
+
+        usort($elements, function ($element, $nextElement) use ($getParameter) {
+            if ($getParameter($element) > $getParameter($nextElement)) {
+                return -1;
+            }
+
+            if ($getParameter($element) < $getParameter($nextElement)) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return new static($elements);
+    }
+
+    public function sortAscending(callable $getParameter) : self
+    {
+        return new static(array_reverse($this->sortDescending($getParameter)->getElements()));
+    }
+
+    public function getLast()
+    {
+        $elements = $this->getElements();
+        return end($elements);
+    }
 }

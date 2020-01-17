@@ -140,4 +140,26 @@ class UsersCollectionTest extends TestCase
             self::assertSame('George', $george->getName());
         }
     }
+
+    public function testSetUsersAscById(): void
+    {
+        $users = new UsersCollection([
+            new User(4, 'Jakub'),
+            new User(1, 'George'),
+            new User(3, 'Chris'),
+            new User(2, 'George'),
+            new User(5, 'George'),
+        ]);
+
+        $sortedUsers = $users->sortAscending(function (User $user) : int {
+            return $user->getId();
+        });
+
+        $id = 0;
+        /** @var User $user */
+        foreach ($sortedUsers as $user) {
+            self::assertSame($id + 1, $user->getId());
+            $id++;
+        }
+    }
 }
