@@ -4,16 +4,16 @@ In order to use it, simply have your collection class extend the abstract
 `Collection` and set it up in the constructor.
 
 ### Installation
-Minimum required php version is `7.1`
+Minimum required php version is `7.4`
 ```
-composer require comquer/collection
+composer require jakubgiminski/collection
 ```
 
 ### Examples
-Here's an example of a `UsersCollection` - a collection of elements where each one
+Here's an example of a `UserCollection` - a collection of elements where each one
 must be an instance of `User`. Also, every `User` in the collection must have a unique id.
 ```php
-class UsersCollection extends Collection
+class UserCollection extends Collection
 {
     public function __construct(array $users = [])
     {
@@ -32,7 +32,7 @@ class UsersCollection extends Collection
 In this example we have an array collection of addresses, where the unique index is the
 entire address (all the fields concatenated).
 ```php
-class AddressesCollection extends Collection
+class AddressCollection extends Collection
 {
     public function __construct(array $addresses = [])
     {
@@ -48,9 +48,8 @@ class AddressesCollection extends Collection
     }
 }
 ```
-`Collection` also supports primitive types such as `int` or `string`. Head to the [examples](https://github.com/jakubgiminski/collection/tree/master/examples) section to examine
-more use cases. Also, the entire test suite is built around those, so you can see how `Collection` works in more detail
-by looking at the [tests](https://github.com/jakubgiminski/collection/tree/master/tests).
+`Collection` also supports primitive types such as `int` or `string`. Head to the [tests](https://github.com/jakubgiminski/collection/tree/master/tests) section to examine
+more use cases. 
 
 ### Documentation
 Naturally, `Collection` does what any collection would do - you can count it, iterate over it, add and remove elements.

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Users;
+namespace Comquer\Collection\Tests\UserCollection;
 
 final class User
 {
-    private $id;
+    private int $id;
 
-    private $name;
+    private string $name;
 
     public function __construct(int $id, string $name)
     {
@@ -14,12 +14,12 @@ final class User
         $this->name = $name;
     }
 
-    public function getId(): int
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getName(): string
+    public function getName() : string
     {
         return $this->name;
     }

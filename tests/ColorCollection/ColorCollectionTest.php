@@ -1,32 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Tests;
+namespace Comquer\Collection\Tests\ColorCollection;
 
-use Comquer\Collection\Examples\Colors\ColorsCollection;
 use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
-class ColorsCollectionTest extends TestCase
+class ColorCollectionTest extends TestCase
 {
-    public function testCanBeCreatedEmpty(): void
+    /** @test */
+    function can_be_instantiated_with_elements_and_counted()
     {
-        self::assertInstanceOf(
-            ColorsCollection::class,
-            new ColorsCollection()
-        );
-    }
-
-    public function testCanBeInstantiatedWithColors(): void
-    {
-        $colors = new ColorsCollection(['red', 'blue', 'green']);
+        $colors = new ColorCollection(['red', 'blue', 'green']);
 
         self::assertCount(3, $colors);
     }
 
-    public function testCanAddColors(): void
+    /** @test */
+    function can_have_elements_added()
     {
-        $colors = new ColorsCollection();
+        $colors = new ColorCollection();
         $colors->add('blue');
         $colors->add('green');
         $colors->add('yellow');
@@ -34,27 +27,29 @@ class ColorsCollectionTest extends TestCase
         self::assertCount(3, $colors);
     }
 
-    public function testCanRemoveAColor(): void
+    /** @test */
+    function can_have_element_removed()
     {
-        $colors = new ColorsCollection(['blue', 'claret', 'yellow']);
-
+        $colors = new ColorCollection(['blue', 'claret', 'yellow']);
         $colors->remove('claret');
 
         self::assertCount(2, $colors);
     }
 
-    public function testThrowsExceptionInCaseOfInvalidType(): void
+    /** @test */
+    function throws_excpetion_for_invalid_type()
     {
         $exception = TypeException::invalidType('string', 'integer');
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
-        new ColorsCollection([1]);
+        new ColorCollection([1]);
     }
 
-    public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
+    /** @test */
+    function throws_exception_for_duplicate_element()
     {
-        $colors = new ColorsCollection(['red', 'blue']);
+        $colors = new ColorCollection(['red', 'blue']);
 
         $exception = UniqueIndexException::duplicateIndex('red');
         $this->expectException(get_class($exception));

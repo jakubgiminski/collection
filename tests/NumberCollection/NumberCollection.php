@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Numbers;
+namespace Comquer\Collection\Tests\NumberCollection;
 
 use Comquer\Collection\Collection;
 use Comquer\Collection\Type;
 
-class NumbersCollection extends Collection
+class NumberCollection extends Collection
 {
     public function __construct(array $numbers = [])
     {
