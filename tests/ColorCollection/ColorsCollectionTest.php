@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Tests;
+namespace Comquer\Collection\Tests\ColorCollection;
 
-use Comquer\Collection\Examples\Colors\ColorsCollection;
 use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;

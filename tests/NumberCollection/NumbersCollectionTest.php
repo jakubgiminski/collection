@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Tests;
+namespace Comquer\Collection\Tests\NumberCollection;
 
-use Comquer\Collection\Examples\Numbers\NumbersCollection;
 use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;

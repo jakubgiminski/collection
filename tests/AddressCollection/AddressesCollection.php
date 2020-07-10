@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Addresses;
+namespace Comquer\Collection\Tests\AddressCollection;
 
 use Comquer\Collection\Collection;
 use Comquer\Collection\Type;
@@ -13,7 +13,7 @@ class AddressesCollection extends Collection
         parent::__construct(
             $addresses,
             Type::array(),
-            new UniqueIndex(function (array $address) {
+            new UniqueIndex(function (array $address) : string {
                 return $address['postCode'] . $address['street'] . $address['homeNumber'];
             })
         );

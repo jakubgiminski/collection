@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Colors;
+namespace Comquer\Collection\Tests\ColorCollection;
 
 use Comquer\Collection\Collection;
 use Comquer\Collection\Type;

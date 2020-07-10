@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Addresses;
+namespace Comquer\Collection\Tests\AddressCollection;
 
 class AddressesFactory
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Examples\Users;
+namespace Comquer\Collection\Tests\UserCollection;
 
 final class User
 {

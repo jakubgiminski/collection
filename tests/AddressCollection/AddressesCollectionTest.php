@@ -1,9 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace Comquer\Collection\Tests;
+namespace Comquer\Collection\Tests\AddressCollection;
 
-use Comquer\Collection\Examples\Addresses\AddressesCollection;
-use Comquer\Collection\Examples\Addresses\AddressesFactory;
 use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
