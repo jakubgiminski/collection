@@ -6,8 +6,8 @@ use Exception;
 
 class NotFoundException extends Exception
 {
-    public static function elementNotFound($index): self
+    public static function elementNotFound($index) : self
     {
-        return new self("Element with index $index was not found");
+        return new self("Element with index `$index` was not found");
     }
 }
