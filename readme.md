@@ -48,9 +48,8 @@ class AddressCollection extends Collection
     }
 }
 ```
-`Collection` also supports primitive types such as `int` or `string`. Head to the [examples](https://github.com/jakubgiminski/collection/tree/master/examples) section to examine
-more use cases. Also, the entire test suite is built around those, so you can see how `Collection` works in more detail
-by looking at the [tests](https://github.com/jakubgiminski/collection/tree/master/tests).
+`Collection` also supports primitive types such as `int` or `string`. Head to the [tests](https://github.com/jakubgiminski/collection/tree/master/tests) section to examine
+more use cases. 
 
 ### Documentation
 Naturally, `Collection` does what any collection would do - you can count it, iterate over it, add and remove elements.
