@@ -21,7 +21,7 @@ class AddressCollectionTest extends TestCase
     }
 
     /** @test */
-    function can_have_element_added(): void
+    function can_have_element_added()
     {
         $addresses = new AddressCollection();
         $addresses->add(Address::COLOSSEUM);

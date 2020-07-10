@@ -28,7 +28,7 @@ class NumberCollectionTest extends TestCase
     }
 
     /** @test */
-    function can_have_element_removed()
+    function can_have_elements_removed()
     {
         $numbers = new NumberCollection([1, 2, 2, 2, 2, 3]);
         $numbers->remove(2);

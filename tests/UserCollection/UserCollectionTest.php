@@ -8,15 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 class UserCollectionTest extends TestCase
 {
-    public function testCanBeCreatedEmpty(): void
-    {
-        self::assertInstanceOf(
-            UserCollection::class,
-            new UserCollection()
-        );
-    }
-
-    public function testCanBeInstantiatedWithUsers(): void
+    /** @test */
+    function can_be_instantiated_with_elements_and_counted()
     {
         $users = new UserCollection([
             new User(1, 'Bill'),
@@ -27,7 +20,8 @@ class UserCollectionTest extends TestCase
         self::assertCount(3, $users);
     }
 
-    public function testCanAddUsers(): void
+    /** @test */
+    function can_have_elements_added()
     {
         $users = new UserCollection();
         $users->add(new User(1,'Bill'));
@@ -37,7 +31,8 @@ class UserCollectionTest extends TestCase
         self::assertCount(3, $users);
     }
 
-    public function testCanRemoveAUser(): void
+    /** @test */
+    function can_have_element_removed()
     {
         $users = new UserCollection([
             $maria = new User(1, 'Maria'),
@@ -49,7 +44,8 @@ class UserCollectionTest extends TestCase
         self::assertCount(1, $users);
     }
 
-    public function testCanGetAUserByUniqueIndex(): void
+    /** @test */
+    function can_have_element_retrieved()
     {
         $users = new UserCollection([
             $maria = new User(1, 'Maria'),
@@ -59,7 +55,8 @@ class UserCollectionTest extends TestCase
         self::assertSame($john, $users->get(2));
     }
 
-    public function testCanCheckIfContainsAUserByUniqueIndex(): void
+    /** @test */
+    function knows_if_contains_element()
     {
         $users = new UserCollection([
             $maria = new User(1, 'Maria'),
@@ -67,19 +64,11 @@ class UserCollectionTest extends TestCase
         ]);
 
         self::assertTrue($users->contains(2));
-    }
-
-    public function testCanCheckIfDoesNotContainAUserByUniqueIndex(): void
-    {
-        $users = new UserCollection([
-            $maria = new User(1, 'Maria'),
-            $john = new User(2, 'John'),
-        ]);
-
         self::assertFalse($users->contains(3));
     }
 
-    public function testThrowsExceptionInCaseOfInvalidType(): void
+    /** @test */
+    function throws_excpetion_for_invalid_type()
     {
         $exception = TypeException::invalidType(User::class, 'string');
         $this->expectException(get_class($exception));
@@ -88,7 +77,8 @@ class UserCollectionTest extends TestCase
         new UserCollection(['invalid type']);
     }
 
-    public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
+    /** @test */
+    function throws_exception_for_duplicate_element()
     {
         $users = new UserCollection([new User(1, 'John')]);
 
@@ -99,7 +89,8 @@ class UserCollectionTest extends TestCase
         $users->add(new User(1, 'Bill'));
     }
 
-    public function testAddMany(): void
+    /** @test */
+    function can_have_multiple_elements_added_at_once()
     {
         $users = new UserCollection([
             new User(1, 'Chris'),
@@ -117,7 +108,8 @@ class UserCollectionTest extends TestCase
         self::assertCount($numberOfUsers, $users);
     }
 
-    public function testFilter(): void
+    /** @test */
+    function can_have_elements_filtered()
     {
         $users = new UserCollection([
            new User(1, 'George'),
@@ -139,7 +131,8 @@ class UserCollectionTest extends TestCase
         }
     }
 
-    public function testSetUsersAscById(): void
+    /** @test */
+    function can_have_elements_sorted()
     {
         $users = new UserCollection([
             new User(4, 'Jakub'),
