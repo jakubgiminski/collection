@@ -13,7 +13,7 @@ class ColorCollection extends Collection
         parent::__construct(
             $colors,
             Type::string(),
-            new UniqueIndex(function (string $color) {
+            new UniqueIndex(function (string $color) : string {
                 return $color;
             })
         );

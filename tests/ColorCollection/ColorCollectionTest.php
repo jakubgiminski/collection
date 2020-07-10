@@ -8,22 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class ColorCollectionTest extends TestCase
 {
-    public function testCanBeCreatedEmpty(): void
-    {
-        self::assertInstanceOf(
-            ColorCollection::class,
-            new ColorCollection()
-        );
-    }
-
-    public function testCanBeInstantiatedWithColors(): void
+    /** @test */
+    function can_be_instantiated_with_elements_and_counted()
     {
         $colors = new ColorCollection(['red', 'blue', 'green']);
 
         self::assertCount(3, $colors);
     }
 
-    public function testCanAddColors(): void
+    /** @test */
+    function can_have_elements_added()
     {
         $colors = new ColorCollection();
         $colors->add('blue');
@@ -33,16 +27,17 @@ class ColorCollectionTest extends TestCase
         self::assertCount(3, $colors);
     }
 
-    public function testCanRemoveAColor(): void
+    /** @test */
+    function can_have_element_removed()
     {
         $colors = new ColorCollection(['blue', 'claret', 'yellow']);
-
         $colors->remove('claret');
 
         self::assertCount(2, $colors);
     }
 
-    public function testThrowsExceptionInCaseOfInvalidType(): void
+    /** @test */
+    function throws_excpetion_for_invalid_type()
     {
         $exception = TypeException::invalidType('string', 'integer');
         $this->expectException(get_class($exception));
@@ -51,7 +46,8 @@ class ColorCollectionTest extends TestCase
         new ColorCollection([1]);
     }
 
-    public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
+    /** @test */
+    function throws_exception_for_duplicate_element()
     {
         $colors = new ColorCollection(['red', 'blue']);
 

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class AddressCollectionTest extends TestCase
 {
     /** @test */
-    function can_be_instantiated_with_elements()
+    function can_be_instantiated_with_elements_and_counted()
     {
         $addresses = new AddressCollection([
             Address::BUCKINGHAM_PALACE,
