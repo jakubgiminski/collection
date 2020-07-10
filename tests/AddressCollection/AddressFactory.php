@@ -2,7 +2,7 @@
 
 namespace Comquer\Collection\Tests\AddressCollection;
 
-class AddressesFactory
+class AddressFactory
 {
     public static function createForBuckinghamPalace(): array
     {

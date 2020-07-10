@@ -6,19 +6,19 @@ use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
-class UsersCollectionTest extends TestCase
+class UserCollectionTest extends TestCase
 {
     public function testCanBeCreatedEmpty(): void
     {
         self::assertInstanceOf(
-            UsersCollection::class,
-            new UsersCollection()
+            UserCollection::class,
+            new UserCollection()
         );
     }
 
     public function testCanBeInstantiatedWithUsers(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             new User(1, 'Bill'),
             new User(2, 'John'),
             new User(3, 'Maria'),
@@ -29,7 +29,7 @@ class UsersCollectionTest extends TestCase
 
     public function testCanAddUsers(): void
     {
-        $users = new UsersCollection();
+        $users = new UserCollection();
         $users->add(new User(1,'Bill'));
         $users->add(new User(2,'John'));
         $users->add(new User(3,'Maria'));
@@ -39,7 +39,7 @@ class UsersCollectionTest extends TestCase
 
     public function testCanRemoveAUser(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             $maria = new User(1, 'Maria'),
             $john = new User(2, 'John'),
         ]);
@@ -51,7 +51,7 @@ class UsersCollectionTest extends TestCase
 
     public function testCanGetAUserByUniqueIndex(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             $maria = new User(1, 'Maria'),
             $john = new User(2, 'John'),
         ]);
@@ -61,7 +61,7 @@ class UsersCollectionTest extends TestCase
 
     public function testCanCheckIfContainsAUserByUniqueIndex(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             $maria = new User(1, 'Maria'),
             $john = new User(2, 'John'),
         ]);
@@ -71,7 +71,7 @@ class UsersCollectionTest extends TestCase
 
     public function testCanCheckIfDoesNotContainAUserByUniqueIndex(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             $maria = new User(1, 'Maria'),
             $john = new User(2, 'John'),
         ]);
@@ -85,12 +85,12 @@ class UsersCollectionTest extends TestCase
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
-        new UsersCollection(['invalid type']);
+        new UserCollection(['invalid type']);
     }
 
     public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
     {
-        $users = new UsersCollection([new User(1, 'John')]);
+        $users = new UserCollection([new User(1, 'John')]);
 
         $exception = UniqueIndexException::duplicateIndex(1);
         $this->expectException(get_class($exception));
@@ -101,12 +101,12 @@ class UsersCollectionTest extends TestCase
 
     public function testAddMany(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             new User(1, 'Chris'),
             new User(2, 'Jakub'),
         ]);
 
-        $moreUsers = new UsersCollection([
+        $moreUsers = new UserCollection([
            new User(3, 'Rob'),
         ]);
 
@@ -119,7 +119,7 @@ class UsersCollectionTest extends TestCase
 
     public function testFilter(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
            new User(1, 'George'),
            new User(2, 'George'),
            new User(3, 'Chris'),
@@ -141,7 +141,7 @@ class UsersCollectionTest extends TestCase
 
     public function testSetUsersAscById(): void
     {
-        $users = new UsersCollection([
+        $users = new UserCollection([
             new User(4, 'Jakub'),
             new User(1, 'George'),
             new User(3, 'Chris'),

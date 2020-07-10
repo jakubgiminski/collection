@@ -6,23 +6,23 @@ use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
-class NumbersCollectionTest extends TestCase
+class NumberCollectionTest extends TestCase
 {
     public function testCanBeCreatedEmpty(): void
     {
-        self::assertInstanceOf(NumbersCollection::class, new NumbersCollection());
+        self::assertInstanceOf(NumberCollection::class, new NumberCollection());
     }
 
     public function testCanBeInstantiatedWithNumbers(): void
     {
-        $numbers = new NumbersCollection([111, 222, 333]);
+        $numbers = new NumberCollection([111, 222, 333]);
 
         self::assertCount(3, $numbers);
     }
 
     public function testCanAddNumbers(): void
     {
-        $numbers = new NumbersCollection();
+        $numbers = new NumberCollection();
         $numbers->add(111);
         $numbers->add(222);
         $numbers->add(333);
@@ -32,7 +32,7 @@ class NumbersCollectionTest extends TestCase
 
     public function testCanRemoveNumbers(): void
     {
-        $numbers = new NumbersCollection([1, 2, 2, 2, 2, 3]);
+        $numbers = new NumberCollection([1, 2, 2, 2, 2, 3]);
 
         $numbers->remove(2);
 
@@ -45,7 +45,7 @@ class NumbersCollectionTest extends TestCase
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
-        (new NumbersCollection([123]))->get(123);
+        (new NumberCollection([123]))->get(123);
     }
 
     public function testThrowsExceptionInCaseOfInvalidType(): void
@@ -54,6 +54,6 @@ class NumbersCollectionTest extends TestCase
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
-        new NumbersCollection(['invalid type']);
+        new NumberCollection(['invalid type']);
     }
 }

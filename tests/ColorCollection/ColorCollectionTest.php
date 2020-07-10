@@ -6,26 +6,26 @@ use Comquer\Collection\TypeException;
 use Comquer\Collection\UniqueIndexException;
 use PHPUnit\Framework\TestCase;
 
-class ColorsCollectionTest extends TestCase
+class ColorCollectionTest extends TestCase
 {
     public function testCanBeCreatedEmpty(): void
     {
         self::assertInstanceOf(
-            ColorsCollection::class,
-            new ColorsCollection()
+            ColorCollection::class,
+            new ColorCollection()
         );
     }
 
     public function testCanBeInstantiatedWithColors(): void
     {
-        $colors = new ColorsCollection(['red', 'blue', 'green']);
+        $colors = new ColorCollection(['red', 'blue', 'green']);
 
         self::assertCount(3, $colors);
     }
 
     public function testCanAddColors(): void
     {
-        $colors = new ColorsCollection();
+        $colors = new ColorCollection();
         $colors->add('blue');
         $colors->add('green');
         $colors->add('yellow');
@@ -35,7 +35,7 @@ class ColorsCollectionTest extends TestCase
 
     public function testCanRemoveAColor(): void
     {
-        $colors = new ColorsCollection(['blue', 'claret', 'yellow']);
+        $colors = new ColorCollection(['blue', 'claret', 'yellow']);
 
         $colors->remove('claret');
 
@@ -48,12 +48,12 @@ class ColorsCollectionTest extends TestCase
         $this->expectException(get_class($exception));
         $this->expectExceptionMessage($exception->getMessage());
 
-        new ColorsCollection([1]);
+        new ColorCollection([1]);
     }
 
     public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
     {
-        $colors = new ColorsCollection(['red', 'blue']);
+        $colors = new ColorCollection(['red', 'blue']);
 
         $exception = UniqueIndexException::duplicateIndex('red');
         $this->expectException(get_class($exception));

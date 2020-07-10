@@ -6,7 +6,7 @@ use Comquer\Collection\Collection;
 use Comquer\Collection\Type;
 use Comquer\Collection\UniqueIndex;
 
-class UsersCollection extends Collection
+class UserCollection extends Collection
 {
     public function __construct(array $users = [])
     {

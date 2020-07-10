@@ -10,10 +10,10 @@ composer require comquer/collection
 ```
 
 ### Examples
-Here's an example of a `UsersCollection` - a collection of elements where each one
+Here's an example of a `UserCollection` - a collection of elements where each one
 must be an instance of `User`. Also, every `User` in the collection must have a unique id.
 ```php
-class UsersCollection extends Collection
+class UserCollection extends Collection
 {
     public function __construct(array $users = [])
     {
@@ -32,7 +32,7 @@ class UsersCollection extends Collection
 In this example we have an array collection of addresses, where the unique index is the
 entire address (all the fields concatenated).
 ```php
-class AddressesCollection extends Collection
+class AddressCollection extends Collection
 {
     public function __construct(array $addresses = [])
     {
