@@ -8,54 +8,50 @@ use PHPUnit\Framework\TestCase;
 
 class AddressCollectionTest extends TestCase
 {
-    public function testCanBeCreatedEmpty(): void
-    {
-        self::assertInstanceOf(
-            AddressCollection::class,
-            new AddressCollection()
-        );
-    }
-
-    public function testCanBeInstantiatedWithAddress(): void
+    /** @test */
+    function can_be_instantiated_with_elements()
     {
         $addresses = new AddressCollection([
-            Address::buckinghamPalace(),
-            Address::eiffelTower(),
-            Address::colosseum(),
+            Address::BUCKINGHAM_PALACE,
+            Address::EIFFEL_TOWER,
+            Address::COLOSSEUM,
         ]);
 
         self::assertCount(3, $addresses);
     }
 
-    public function testCanAddAddress(): void
+    /** @test */
+    function can_have_element_added(): void
     {
         $addresses = new AddressCollection();
-        $addresses->add(Address::colosseum());
-        $addresses->add(Address::eiffelTower());
+        $addresses->add(Address::COLOSSEUM);
+        $addresses->add(Address::EIFFEL_TOWER);
 
         self::assertCount(2, $addresses);
     }
 
-    public function testCanRemoveAnAddress(): void
+    /** @test */
+    function can_have_element_removed()
     {
         $addresses = new AddressCollection([
-            Address::buckinghamPalace(),
-            Address::eiffelTower(),
-            Address::colosseum(),
+            Address::BUCKINGHAM_PALACE,
+            Address::EIFFEL_TOWER,
+            Address::COLOSSEUM,
         ]);
 
-        $addresses->remove(Address::colosseum());
+        $addresses->remove(Address::COLOSSEUM);
 
         self::assertCount(2, $addresses);
     }
 
-    public function testCanGetAddressByUniqueIndex(): void
+    /** @test */
+    function can_have_element_retrieved()
     {
-        $colosseum = Address::colosseum();
+        $colosseum = Address::COLOSSEUM;
 
         $addresses = new AddressCollection([
-            Address::buckinghamPalace(),
-            Address::eiffelTower(),
+            Address::BUCKINGHAM_PALACE,
+            Address::EIFFEL_TOWER,
             $colosseum
         ]);
 
@@ -64,7 +60,8 @@ class AddressCollectionTest extends TestCase
         self::assertSame($colosseum, $addresses->get($index));
     }
 
-    public function testThrowsExceptionInCaseOfInvalidType(): void
+    /** @test */
+    function throws_excpetion_for_invalid_type()
     {
         $exception = TypeException::invalidType('array', 'string');
         $this->expectException(get_class($exception));
@@ -73,13 +70,14 @@ class AddressCollectionTest extends TestCase
         new AddressCollection(['invalid type']);
     }
 
-    public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
+    /** @test */
+    function throws_exception_for_duplicate_element()
     {
-        $colosseum = Address::colosseum();
+        $colosseum = Address::COLOSSEUM;
 
         $addresses = new AddressCollection([
-            Address::buckinghamPalace(),
-            Address::eiffelTower(),
+            Address::BUCKINGHAM_PALACE,
+            Address::EIFFEL_TOWER,
             $colosseum
         ]);
 
@@ -92,12 +90,13 @@ class AddressCollectionTest extends TestCase
         $addresses->add($colosseum);
     }
 
-    public function testCanBeIteratedOver(): void
+    /** @test */
+    function can_be_iterated_over()
     {
         $addresses = new AddressCollection([
-            Address::buckinghamPalace(),
-            Address::eiffelTower(),
-            Address::colosseum(),
+            Address::BUCKINGHAM_PALACE,
+            Address::EIFFEL_TOWER,
+            Address::COLOSSEUM,
         ]);
 
         $iterations = 0;
@@ -109,23 +108,15 @@ class AddressCollectionTest extends TestCase
         self::assertSame(3, $iterations);
     }
 
-    public function testCanTellIfIsEmpty(): void
+    /** @test */
+    public function knows_if_its_empty()
     {
-        $addresses = new AddressCollection();
         self::assertTrue(
-            $addresses->isEmpty()
+            (new AddressCollection())->isEmpty()
         );
-    }
-
-    public function testCanTellIfIsNotEmpty(): void
-    {
-        $addresses = new AddressCollection([
-            Address::buckinghamPalace()
-        ]);
-
 
         self::assertFalse(
-            $addresses->isEmpty()
+            (new AddressCollection([Address::COLOSSEUM]))->isEmpty()
         );
     }
 }
