@@ -7,11 +7,11 @@ use Iterator;
 
 abstract class Collection implements Countable, Iterator
 {
-    private $elements;
+    private array $elements;
 
-    private $type;
+    private ?Type $type;
 
-    private $uniqueIndex;
+    private ?UniqueIndex $uniqueIndex;
 
     protected function __construct(array $elements, Type $type = null, UniqueIndex $uniqueIndex = null)
     {
@@ -24,7 +24,7 @@ abstract class Collection implements Countable, Iterator
         }
     }
 
-    public function add($element): self
+    public function add($element) : self
     {
         if ($this->isTyped()) {
             $this->type->validate($element);
@@ -39,14 +39,14 @@ abstract class Collection implements Countable, Iterator
         return $this;
     }
 
-    public function addMany(self $collection): void
+    public function addMany(self $collection) : void
     {
         foreach ($collection as $element) {
             $this->add($element);
         }
     }
 
-    public function remove($redundantElement): self
+    public function remove($redundantElement) : self
     {
         foreach ($this->elements as $key => $element) {
             if ($element == $redundantElement) {
@@ -72,7 +72,7 @@ abstract class Collection implements Countable, Iterator
         throw NotFoundException::elementNotFound($uniqueIndex);
     }
 
-    public function contains($uniqueIndex): bool
+    public function contains($uniqueIndex) : bool
     {
         try {
             $this->get($uniqueIndex);
@@ -82,22 +82,22 @@ abstract class Collection implements Countable, Iterator
         }
     }
 
-    public function count(): int
+    public function count() : int
     {
         return count($this->elements);
     }
 
-    public function getElements(): array
+    public function getElements() : array
     {
         return $this->elements;
     }
 
-    public function isTyped(): bool
+    public function isTyped() : bool
     {
         return $this->type instanceof Type;
     }
 
-    public function hasUniqueIndex(): bool
+    public function hasUniqueIndex() : bool
     {
         return $this->uniqueIndex instanceof UniqueIndex;
     }
@@ -127,12 +127,12 @@ abstract class Collection implements Countable, Iterator
         return key($this->elements) !== null;
     }
 
-    public function isEmpty(): bool
+    public function isEmpty() : bool
     {
         return empty($this->elements);
     }
 
-    public function filter(callable $filter): self
+    public function filter(callable $filter) : self
     {
         $filteredCollection = new static([]);
 

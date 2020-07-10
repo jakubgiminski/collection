@@ -4,23 +4,23 @@ namespace Comquer\Collection;
 
 class UniqueIndex
 {
-    private $getIndex;
+    private $getElement;
 
-    public function __construct(callable $getIndex)
+    public function __construct(callable $getElement)
     {
-        $this->getIndex = $getIndex;
+        $this->getElement = $getElement;
     }
 
     public function __invoke($element)
     {
-        return ($this->getIndex)($element);
+        return ($this->getElement)($element);
     }
 
     public function validate($newElement, array $elements): void
     {
-        $index = ($this->getIndex)($newElement);
+        $index = ($this->getElement)($newElement);
         foreach ($elements as $element) {
-            if (($this->getIndex)($element) === $index) {
+            if (($this->getElement)($element) === $index) {
                 throw UniqueIndexException::duplicateIndex($index);
             }
         }
