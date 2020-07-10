@@ -19,9 +19,9 @@ class AddressCollectionTest extends TestCase
     public function testCanBeInstantiatedWithAddress(): void
     {
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace(),
-            AddressFactory::createForEiffelTower(),
-            AddressFactory::createForColosseum(),
+            Address::buckinghamPalace(),
+            Address::eiffelTower(),
+            Address::colosseum(),
         ]);
 
         self::assertCount(3, $addresses);
@@ -30,8 +30,8 @@ class AddressCollectionTest extends TestCase
     public function testCanAddAddress(): void
     {
         $addresses = new AddressCollection();
-        $addresses->add(AddressFactory::createForColosseum());
-        $addresses->add(AddressFactory::createForEiffelTower());
+        $addresses->add(Address::colosseum());
+        $addresses->add(Address::eiffelTower());
 
         self::assertCount(2, $addresses);
     }
@@ -39,23 +39,23 @@ class AddressCollectionTest extends TestCase
     public function testCanRemoveAnAddress(): void
     {
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace(),
-            AddressFactory::createForEiffelTower(),
-            AddressFactory::createForColosseum(),
+            Address::buckinghamPalace(),
+            Address::eiffelTower(),
+            Address::colosseum(),
         ]);
 
-        $addresses->remove(AddressFactory::createForColosseum());
+        $addresses->remove(Address::colosseum());
 
         self::assertCount(2, $addresses);
     }
 
     public function testCanGetAddressByUniqueIndex(): void
     {
-        $colosseum = AddressFactory::createForColosseum();
+        $colosseum = Address::colosseum();
 
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace(),
-            AddressFactory::createForEiffelTower(),
+            Address::buckinghamPalace(),
+            Address::eiffelTower(),
             $colosseum
         ]);
 
@@ -75,11 +75,11 @@ class AddressCollectionTest extends TestCase
 
     public function testThrowsExceptionInCaseOfDuplicatedUniqueIndex(): void
     {
-        $colosseum = AddressFactory::createForColosseum();
+        $colosseum = Address::colosseum();
 
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace(),
-            AddressFactory::createForEiffelTower(),
+            Address::buckinghamPalace(),
+            Address::eiffelTower(),
             $colosseum
         ]);
 
@@ -95,9 +95,9 @@ class AddressCollectionTest extends TestCase
     public function testCanBeIteratedOver(): void
     {
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace(),
-            AddressFactory::createForEiffelTower(),
-            AddressFactory::createForColosseum(),
+            Address::buckinghamPalace(),
+            Address::eiffelTower(),
+            Address::colosseum(),
         ]);
 
         $iterations = 0;
@@ -120,7 +120,7 @@ class AddressCollectionTest extends TestCase
     public function testCanTellIfIsNotEmpty(): void
     {
         $addresses = new AddressCollection([
-            AddressFactory::createForBuckinghamPalace()
+            Address::buckinghamPalace()
         ]);
 
 

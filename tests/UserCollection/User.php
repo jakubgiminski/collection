@@ -4,9 +4,9 @@ namespace Comquer\Collection\Tests\UserCollection;
 
 final class User
 {
-    private $id;
+    private int $id;
 
-    private $name;
+    private string $name;
 
     public function __construct(int $id, string $name)
     {

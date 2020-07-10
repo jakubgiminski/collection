@@ -2,9 +2,13 @@
 
 namespace Comquer\Collection\Tests\AddressCollection;
 
-class AddressFactory
+final class Address
 {
-    public static function createForBuckinghamPalace(): array
+    private function __construct()
+    {
+    }
+
+    public static function buckinghamPalace(): array
     {
         return [
             'postCode' => 'SW1A 1AA',
@@ -13,7 +17,7 @@ class AddressFactory
         ];
     }
 
-    public static function createForEiffelTower(): array
+    public static function eiffelTower(): array
     {
         return [
             'postCode' => '75007 Paris',
@@ -22,7 +26,7 @@ class AddressFactory
         ];
     }
 
-    public static function createForColosseum(): array
+    public static function colosseum(): array
     {
         return [
             'postCode' => '00184 Roma RM',
